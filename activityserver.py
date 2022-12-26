@@ -34,12 +34,12 @@ while True:
 
         data = json.loads(json_data)
 
-        isExists = 0
+        doesExist = 0
         for room in data['activities']:
             if room['name'] == params[b"name"].decode():
-                isExists = 1
+                doesExist = 1
 
-        if isExists == 1:
+        if doesExist == 1:
             response =  b"HTTP/1.1 403 Forbidden\n"
             response += b"Content-Type: text/html\n"
             response += b"\n"

@@ -30,12 +30,12 @@ while True:
 
         data = json.loads(json_data)
 
-        isExists = 0
+        doesExist = 0
         for room in data['rooms']:
             if room['name'] == params[b"name"].decode():
-                isExists = 1
+                doesExist = 1
 
-        if isExists == 1:
+        if doesExist == 1:
             response =  b"HTTP/1.1 403 Forbidden\n"
             response += b"Content-Type: text/html\n"
             response += b"\n"
@@ -88,14 +88,14 @@ while True:
         data = json.loads(json_data)
 
         isAllow = 0
-        isExists = 0
+        doesExist = 0
         indexCounter = -1
         outOfBound = 0
         for room in data['rooms']:
             indexCounter = indexCounter + 1
             if room['name'] == params[b'name'].decode():
                 index = indexCounter
-                isExists = 1
+                doesExist = 1
                 isAllow = 1
                 for reserve in room['reserve']:
                     if reserve['day'] == int(params[b'day'].decode()):
@@ -130,13 +130,13 @@ while True:
             response += b"\n"
             response += b"<html><body>The room has been reserved.</body></html>"
 
-        elif isExists == 1 and isAllow == 0:
+        elif doesExist == 1 and isAllow == 0:
             response =  b"HTTP/1.1 403 Forbidden\n"
             response += b"Content-Type: text/html\n"
             response += b"\n"
             response += b"<html><body>The room is already reserved.</body></html>"
 
-        elif isExists == 0:
+        elif doesExist == 0:
             response =  b"HTTP/1.1 403 Forbidden\n"
             response += b"Content-Type: text/html\n"
             response += b"\n"
@@ -154,14 +154,14 @@ while True:
 
 
         isAllow = 0
-        isExists = 0
+        doesExist = 0
         indexCounter = -1
         outOfBound = 0
         for room in data['rooms']:
             indexCounter = indexCounter + 1
             if room['name'] == params[b'name'].decode():
                 index = indexCounter
-                isExists = 1
+                doesExist = 1
                 isAllow = 1
                 for reserve in room['reserve']:
                     if reserve['day'] == int(params[b'day'].decode()):
@@ -172,7 +172,7 @@ while True:
             response += b"Content-Type: text/html\n"
             response += b"\n"
             response += b"<html><body>Invalid day or hour value.</body></html>"
-        elif isExists == 0:
+        elif doesExist == 0:
             response =  b"HTTP/1.1 404 Not Found\n"
             response += b"Content-Type: text/html\n"
             response += b"\n"
