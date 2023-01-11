@@ -1,1 +1,1 @@
-{"reservations": [{"id": 1, "activity_name": "activity", "room_name": "roomname", "day": 7, "hour": 17, "duration": 1}]}
+{"reservations": [{"id": 1, "activity_name": "CSE4074Demo", "room_name": "M2Z08", "day": 3, "hour": 10, "duration": 2}, {"id": 2, "activity_name": "CSE4074Exam", "room_name": "M2Z11", "day": 3, "hour": 11, "duration": 3}]}
